@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loading...</title>
+  <style>
+    body {
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      flex-direction: column;
+      color: #333;
+    }
+    .spinner {
+      border: 8px solid #f3f3f3;
+      border-top: 8px solid #3498db;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .countdown {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+  </style>
+  <script>
+    // URL to redirect to
+    const redirectUrl = "https://kojipoker.com/6-early-warning-signs-of-lupus/";
+    // Time (in seconds) before redirect
+    let secondsLeft = 5;
+
+    // Update countdown text and redirect when time is up
+    function updateCountdown() {
+      document.getElementById('countdown').textContent = secondsLeft;
+      if (secondsLeft === 0) {
+        window.location.href = redirectUrl;
+      }
+      secondsLeft--;
+    }
+
+    window.onload = () => {
+      updateCountdown(); // Show initial countdown number
+      setInterval(updateCountdown, 1000); // Update every second
+    };
+  </script>
+</head>
+<body>
+  <div class="spinner"></div>
+  <div>Loading, please wait...</div>
+  <div class="countdown">Redirecting in <span id="countdown">5</span> seconds...</div>
+</body>
+</html>
